@@ -150,11 +150,13 @@ function setCartQty(name, price, qty) {
 
 // Sync ALL qty-control elements for the same item across the page
 function syncAllQtyDisplays(itemName) {
-    document.querySelectorAll(`.qty-control[data-item="${CSS.escape(itemName)}"]`).forEach(ctrl => {
-        const countEl = ctrl.querySelector('.qty-count');
-        const qty = cart[itemName] ? cart[itemName].qty : 0;
-        countEl.textContent = qty;
-        ctrl.classList.toggle('has-items', qty > 0);
+    document.querySelectorAll('.qty-control').forEach(ctrl => {
+        if (ctrl.dataset.item === itemName) {
+            const countEl = ctrl.querySelector('.qty-count');
+            const qty = cart[itemName] ? cart[itemName].qty : 0;
+            if (countEl) countEl.textContent = qty;
+            ctrl.classList.toggle('has-items', qty > 0);
+        }
     });
 }
 
@@ -268,27 +270,14 @@ document.addEventListener('keydown', (e) => {
 
 // ===== WhatsApp Order =====
 orderBtn.addEventListener('click', () => {
+    const count = getCartItemCount();
+    if (count === 0) {
+        showToast('⚠️ Please add items to your cart first!');
+        return;
+    }
+
     const name = customerName.value.trim();
     const address = customerAddress.value.trim();
-    let hasError = false;
-
-    // Validate
-    customerName.classList.remove('error');
-    customerAddress.classList.remove('error');
-
-    if (!name) {
-        customerName.classList.add('error');
-        customerName.focus();
-        hasError = true;
-    }
-    if (!address) {
-        customerAddress.classList.add('error');
-        if (!hasError) customerAddress.focus();
-        hasError = true;
-    }
-    if (hasError) return;
-
-    if (getCartItemCount() === 0) return;
 
     // Build WhatsApp message
     const subtotal = getCartSubtotal();
@@ -296,8 +285,8 @@ orderBtn.addEventListener('click', () => {
     const total = subtotal + delivery;
 
     let msg = `🍜 *New Order — বং Chingzz Home Kitchen*\n\n`;
-    msg += `👤 *Name:* ${name}\n`;
-    msg += `📍 *Address:* ${address}\n\n`;
+    msg += `👤 *Name:* ${name || 'Customer'}\n`;
+    msg += `📍 *Address:* ${address || 'Will provide in chat'}\n\n`;
     msg += `📋 *Order Details:*\n`;
     msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
 
@@ -321,14 +310,28 @@ orderBtn.addEventListener('click', () => {
     msg += `\n🧾 *Total: ₹${total}*\n\n`;
     msg += `Thank you! 🙏`;
 
-    // Encode and open WhatsApp
+    // Encode WhatsApp URL
     const encoded = encodeURIComponent(msg);
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encoded}`;
 
-    window.open(url, '_blank');
+    // Reliable opening mechanism for mobile & desktop
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    // Show success toast
-    showToast('🎉 Order sent to WhatsApp!');
+    if (isMobile) {
+        // Mobile browsers block window.open as popup; location.href directly opens WhatsApp app
+        window.location.href = whatsappUrl;
+    } else {
+        // Desktop: anchor tag with target="_blank"
+        const link = document.createElement('a');
+        link.href = whatsappUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    showToast('🎉 Opening WhatsApp...');
 });
 
 // Remove error class on input
