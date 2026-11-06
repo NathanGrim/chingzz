@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বং Chingzz - Home Kitchen | Offline Orders & Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🍜</span>
+                <span class="logo-text"><span class="bengali-brand">বং</span> Chingzz</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#combos">Combos</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#thali">Thali</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="cuisine-tags">
+                    <span class="tag tag-chinese">Chinese</span>
+                    <span class="tag tag-bengali">Bengali</span>
+                    <span class="tag tag-indian">Indian</span>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">Home Kitchen</div>
+            <h1 class="hero-title">
+                <span class="hero-title-accent"><span class="bengali-brand">বং</span> Chingzz</span>
+                <br>Home Kitchen
+            </h1>
+            <p class="hero-subtitle">Delicious Chinese, Bengali & Indian food delivered to your doorstep</p>
+            <div class="hero-tags">
+                <span class="cuisine-pill chinese">🥡 Chinese</span>
+                <span class="cuisine-pill bengali">🍛 Bengali</span>
+                <span class="cuisine-pill indian">🍲 Indian</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="#contact" class="btn btn-secondary">Order Now</a>
+            </div>
+            <div class="hero-info">
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <span>Madhyamgram</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🕐</span>
+                    <span>Order 1.5 hrs before delivery</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card card-1">🍜 Momos</div>
+            <div class="floating-card card-2">🍗 Chicken</div>
+            <div class="floating-card card-3">🍚 Thali</div>
+            <div class="floating-card card-4">🥟 Rolls</div>
+        </div>
+    </section>
+
+    <!-- Delivery Info Banner -->
+    <section class="delivery-banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-item">
+                    <span class="banner-icon">🛵</span>
+                    <div>
+                        <strong>Delivery Available</strong>
+                        <p>Madhyamgram, Barasat, Hridaypur & New Barrackpore</p>
+                    </div>
+                </div>
+                <div class="banner-item">
+                    <span class="banner-icon">💰</span>
+                    <div>
+                        <strong>Min Order ₹169</strong>
+                        <p>Below ₹169, ₹40 delivery charge</p>
+                    </div>
+                </div>
+                <div class="banner-item">
+                    <span class="banner-icon">⏰</span>
+                    <div>
+                        <strong>Order Early</strong>
+                        <p>1.5 hours before delivery time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combos Section -->
+    <section class="section combos-section" id="combos">
+        <div class="container">
+            <h2 class="section-title">Combos <span class="title-accent">(Value Meals)</span></h2>
+            <p class="section-subtitle">Amazing combos at unbeatable prices!</p>
+            <div class="combos-grid">
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 1</span>
+                    <p class="combo-desc">French Fries + Chicken Pakora (2 pcs) + Cold Drink</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹140</span>
+                            <span class="current-price">₹99</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 1: Fries + Chicken Pakora + Cold Drink" data-price="99">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 2</span>
+                    <p class="combo-desc">Veg Chowmein + Chicken Pakora (4 pcs)</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹135</span>
+                            <span class="current-price">₹99</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 2: Veg Chowmein + Chicken Pakora" data-price="99">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 3</span>
+                    <p class="combo-desc">Egg Chowmein + Chilli Chicken (2 pcs)</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹149</span>
+                            <span class="current-price">₹105</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 3: Egg Chowmein + Chilli Chicken" data-price="105">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 4</span>
+                    <p class="combo-desc">French Fries + Chicken Pakora (2 pcs) + Cold Drink</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹140</span>
+                            <span class="current-price">₹99</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 4: Fries + Chicken Pakora + Cold Drink" data-price="99">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 5</span>
+                    <p class="combo-desc">Chicken Steam Momo (4 pcs) + Chicken Fingers (2 pcs) + Masala Cold Drink</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹180</span>
+                            <span class="current-price">₹129</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 5: Momo + Chicken Fingers + Masala Drink" data-price="129">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 6</span>
+                    <p class="combo-desc">Egg Chicken Fried Rice + Chilli Chicken (2 pcs)</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹149</span>
+                            <span class="current-price">₹99</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 6: Egg Chicken Fried Rice + Chilli Chicken" data-price="99">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 7</span>
+                    <p class="combo-desc">Chicken Fingers (2 pcs) + Veg Sandwich + Cold Drink</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹155</span>
+                            <span class="current-price">₹109</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 7: Chicken Fingers + Veg Sandwich + Cold Drink" data-price="109">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 8</span>
+                    <p class="combo-desc">Pulao + Chicken Kosha (2 pcs)</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹145</span>
+                            <span class="current-price">₹100</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 8: Pulao + Chicken Kosha" data-price="100">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <span class="combo-badge">COMBO 9</span>
+                    <p class="combo-desc">Pulao + Aloor Dom (3 pcs)</p>
+                    <div class="combo-footer">
+                        <div class="combo-price">
+                            <span class="old-price">₹135</span>
+                            <span class="current-price">₹99</span>
+                        </div>
+                        <div class="qty-control" data-item="Combo 9: Pulao + Aloor Dom" data-price="99">
+                            <button class="qty-btn qty-minus" aria-label="Remove">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus" aria-label="Add">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our <span class="title-accent">Menu</span></h2>
+            <p class="section-subtitle">Tap + to add items to your order</p>
+
+            <!-- Menu Filter -->
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="momos">Momos</button>
+                <button class="filter-btn" data-filter="egg-sandwich">Egg & Sandwich</button>
+                <button class="filter-btn" data-filter="chowmein-rice">Chowmein & Rice</button>
+                <button class="filter-btn" data-filter="rolls">Rolls</button>
+                <button class="filter-btn" data-filter="indian-curry">Indian Curry</button>
+                <button class="filter-btn" data-filter="beverages">Beverages</button>
+                <button class="filter-btn" data-filter="chicken-snacks">Chicken & Snacks</button>
+                <button class="filter-btn" data-filter="roti-puri">Roti & Puri</button>
+            </div>
+
+            <div class="menu-grid">
+
+                <!-- Momos -->
+                <div class="menu-category" data-category="momos">
+                    <div class="category-header">
+                        <h3 class="category-title">🥟 Momos <span class="category-note">(5 pcs)</span></h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Steam Momo</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹80</span><span class="current-price">₹60</span></span>
+                                <div class="qty-control" data-item="Chicken Steam Momo (5 pcs)" data-price="60">
+                                    <button class="qty-btn qty-minus">−</button>
+                                    <span class="qty-count">0</span>
+                                    <button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Fried Momo</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹99</span><span class="current-price">₹79</span></span>
+                                <div class="qty-control" data-item="Chicken Fried Momo (5 pcs)" data-price="79">
+                                    <button class="qty-btn qty-minus">−</button>
+                                    <span class="qty-count">0</span>
+                                    <button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Cheesy Tangy Momo</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹119</span><span class="current-price">₹89</span></span>
+                                <div class="qty-control" data-item="Cheesy Tangy Momo (5 pcs)" data-price="89">
+                                    <button class="qty-btn qty-minus">−</button>
+                                    <span class="qty-count">0</span>
+                                    <button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Egg & Sandwich -->
+                <div class="menu-category" data-category="egg-sandwich">
+                    <div class="category-header">
+                        <h3 class="category-title">🥚 Egg & Sandwich</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Boiled Egg</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹15</span><span class="current-price">₹10</span></span>
+                                <div class="qty-control" data-item="Boiled Egg" data-price="10">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Double Omelette</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹50</span><span class="current-price">₹35</span></span>
+                                <div class="qty-control" data-item="Double Omelette" data-price="35">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Cheesy Omelette</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹70</span><span class="current-price">₹50</span></span>
+                                <div class="qty-control" data-item="Cheesy Omelette" data-price="50">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Sandwich</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹50</span><span class="current-price">₹35</span></span>
+                                <div class="qty-control" data-item="Egg Sandwich" data-price="35">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Cheesy Chicken Sandwich</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹99</span><span class="current-price">₹79</span></span>
+                                <div class="qty-control" data-item="Cheesy Chicken Sandwich" data-price="79">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Veg Sandwich</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹79</span><span class="current-price">₹59</span></span>
+                                <div class="qty-control" data-item="Veg Sandwich" data-price="59">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chowmein & Rice -->
+                <div class="menu-category" data-category="chowmein-rice">
+                    <div class="category-header">
+                        <h3 class="category-title">🍜 Chowmein & Rice</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Veg Chowmein</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹60</span><span class="current-price">₹45</span></span>
+                                <div class="qty-control" data-item="Veg Chowmein" data-price="45">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Chowmein</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹75</span><span class="current-price">₹55</span></span>
+                                <div class="qty-control" data-item="Egg Chowmein" data-price="55">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Chowmein</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹85</span><span class="current-price">₹65</span></span>
+                                <div class="qty-control" data-item="Chicken Chowmein" data-price="65">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Chicken Chowmein</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹110</span><span class="current-price">₹85</span></span>
+                                <div class="qty-control" data-item="Egg Chicken Chowmein" data-price="85">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Steamed Rice</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹60</span><span class="current-price">₹45</span></span>
+                                <div class="qty-control" data-item="Steamed Rice" data-price="45">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Veg Fried Rice <small>(Full Plate)</small></span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹110</span><span class="current-price">₹85</span></span>
+                                <div class="qty-control" data-item="Veg Fried Rice (Full Plate)" data-price="85">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Fried Rice <small>(Full Plate)</small></span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹129</span><span class="current-price">₹99</span></span>
+                                <div class="qty-control" data-item="Egg Fried Rice (Full Plate)" data-price="99">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Fried Rice <small>(Full Plate)</small></span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹129</span><span class="current-price">₹99</span></span>
+                                <div class="qty-control" data-item="Chicken Fried Rice (Full Plate)" data-price="99">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Chicken Fried Rice <small>(Full)</small></span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹130</span><span class="current-price">₹100</span></span>
+                                <div class="qty-control" data-item="Egg Chicken Fried Rice (Full Plate)" data-price="100">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Pulao <small>(Full Plate)</small></span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹129</span><span class="current-price">₹99</span></span>
+                                <div class="qty-control" data-item="Pulao (Full Plate)" data-price="99">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rolls -->
+                <div class="menu-category" data-category="rolls">
+                    <div class="category-header">
+                        <h3 class="category-title">🌯 Rolls</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Veg Roll</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹55</span><span class="current-price">₹40</span></span>
+                                <div class="qty-control" data-item="Veg Roll" data-price="40">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Roll</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹65</span><span class="current-price">₹50</span></span>
+                                <div class="qty-control" data-item="Egg Roll" data-price="50">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Roll</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹90</span><span class="current-price">₹70</span></span>
+                                <div class="qty-control" data-item="Chicken Roll" data-price="70">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Egg Chicken Roll</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹110</span><span class="current-price">₹85</span></span>
+                                <div class="qty-control" data-item="Egg Chicken Roll" data-price="85">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indian Curry -->
+                <div class="menu-category" data-category="indian-curry">
+                    <div class="category-header">
+                        <h3 class="category-title">🍛 Indian Curry</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Dim Kosha (2 pcs)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹85</span><span class="current-price">₹65</span></span>
+                                <div class="qty-control" data-item="Dim Kosha (2 pcs)" data-price="65">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Kosha (4 pcs)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹129</span><span class="current-price">₹99</span></span>
+                                <div class="qty-control" data-item="Chicken Kosha (4 pcs)" data-price="99">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Gravy Paneer</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹110</span><span class="current-price">₹85</span></span>
+                                <div class="qty-control" data-item="Gravy Paneer" data-price="85">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Kadai Paneer</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹119</span><span class="current-price">₹89</span></span>
+                                <div class="qty-control" data-item="Kadai Paneer" data-price="89">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Cholar Dal</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹65</span><span class="current-price">₹49</span></span>
+                                <div class="qty-control" data-item="Cholar Dal" data-price="49">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Aloor Dom (Bengali Style)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹65</span><span class="current-price">₹49</span></span>
+                                <div class="qty-control" data-item="Aloor Dom (Bengali Style)" data-price="49">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beverages -->
+                <div class="menu-category" data-category="beverages">
+                    <div class="category-header">
+                        <h3 class="category-title">🥤 Beverages</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Cold Coffee</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹89</span><span class="current-price">₹69</span></span>
+                                <div class="qty-control" data-item="Cold Coffee" data-price="69">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Milk Coffee</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹50</span><span class="current-price">₹35</span></span>
+                                <div class="qty-control" data-item="Milk Coffee" data-price="35">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chocolate Milkshake</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹119</span><span class="current-price">₹89</span></span>
+                                <div class="qty-control" data-item="Chocolate Milkshake" data-price="89">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Oreo Milkshake</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹99</span><span class="current-price">₹79</span></span>
+                                <div class="qty-control" data-item="Oreo Milkshake" data-price="79">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Masala Cold Drink</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹50</span><span class="current-price">₹35</span></span>
+                                <div class="qty-control" data-item="Masala Cold Drink" data-price="35">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chicken & Snacks -->
+                <div class="menu-category" data-category="chicken-snacks">
+                    <div class="category-header">
+                        <h3 class="category-title">🍗 Chicken & Snacks</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Chilli Chicken (5 pcs)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹130</span><span class="current-price">₹99</span></span>
+                                <div class="qty-control" data-item="Chilli Chicken (5 pcs)" data-price="99">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Paneer Chilli (4 pcs)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹130</span><span class="current-price">₹99</span></span>
+                                <div class="qty-control" data-item="Paneer Chilli (4 pcs)" data-price="99">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Pakoda — 100 gm</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹80</span><span class="current-price">₹60</span></span>
+                                <div class="qty-control" data-item="Chicken Pakoda (100 gm)" data-price="60">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Pakoda — 200 gm</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹149</span><span class="current-price">₹115</span></span>
+                                <div class="qty-control" data-item="Chicken Pakoda (200 gm)" data-price="115">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Pakoda — 250 gm</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹175</span><span class="current-price">₹140</span></span>
+                                <div class="qty-control" data-item="Chicken Pakoda (250 gm)" data-price="140">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Pakoda — 500 gm</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹280</span><span class="current-price">₹215</span></span>
+                                <div class="qty-control" data-item="Chicken Pakoda (500 gm)" data-price="215">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Fingers (5 pcs)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹110</span><span class="current-price">₹85</span></span>
+                                <div class="qty-control" data-item="Chicken Fingers (5 pcs)" data-price="85">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Keema Samosa (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹15</span><span class="current-price">₹10</span></span>
+                                <div class="qty-control" data-item="Chicken Keema Samosa" data-price="10">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">French Fries</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹70</span><span class="current-price">₹50</span></span>
+                                <div class="qty-control" data-item="French Fries" data-price="50">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Peri Peri French Fries</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹80</span><span class="current-price">₹60</span></span>
+                                <div class="qty-control" data-item="Peri Peri French Fries" data-price="60">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Chicken Balls (5 pcs)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹110</span><span class="current-price">₹85</span></span>
+                                <div class="qty-control" data-item="Chicken Balls (5 pcs)" data-price="85">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Veg Pakora (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹8</span><span class="current-price">₹5</span></span>
+                                <div class="qty-control" data-item="Veg Pakora" data-price="5">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Pyazi / Onion Fritters (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹12</span><span class="current-price">₹9</span></span>
+                                <div class="qty-control" data-item="Pyazi / Onion Fritters" data-price="9">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roti & Puri -->
+                <div class="menu-category" data-category="roti-puri">
+                    <div class="category-header">
+                        <h3 class="category-title">🫓 Roti & Puri</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="item-name">Roti (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹8</span><span class="current-price">₹5</span></span>
+                                <div class="qty-control" data-item="Roti" data-price="5">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Kochuri (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹10</span><span class="current-price">₹7</span></span>
+                                <div class="qty-control" data-item="Kochuri" data-price="7">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Luchi (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹9</span><span class="current-price">₹6</span></span>
+                                <div class="qty-control" data-item="Luchi" data-price="6">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <span class="item-name">Paratha (per pc)</span>
+                            <div class="item-right">
+                                <span class="item-price"><span class="old-price">₹12</span><span class="current-price">₹9</span></span>
+                                <div class="qty-control" data-item="Paratha" data-price="9">
+                                    <button class="qty-btn qty-minus">−</button><span class="qty-count">0</span><button class="qty-btn qty-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Thali Section -->
+    <section class="section thali-section" id="thali">
+        <div class="container">
+            <h2 class="section-title">🍽️ <span class="title-accent">Thali</span> Specials</h2>
+            <p class="section-subtitle">Complete meals with Rice, Dal, Bhaja, Chutney & Papad</p>
+            <div class="thali-grid">
+
+                <div class="thali-card">
+                    <div class="thali-icon">🐟</div>
+                    <h3 class="thali-name">Fish Thali</h3>
+                    <p class="thali-desc">Rice, Dal, Aloo Bhaja, Rui Fish (2 pcs), Chutney, Papad</p>
+                    <div class="thali-price">
+                        <span class="old-price">₹199</span>
+                        <span class="current-price">₹149</span>
+                    </div>
+                    <span class="thali-tag">Bestseller</span>
+                    <div class="thali-add">
+                        <div class="qty-control" data-item="Fish Thali" data-price="149">
+                            <button class="qty-btn qty-minus">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thali-card">
+                    <div class="thali-icon">🍗</div>
+                    <h3 class="thali-name">Chicken Thali</h3>
+                    <p class="thali-desc">Rice, Dal, Aloo Bhaja, Chicken Kosha (2 pcs), Chutney, Papad</p>
+                    <div class="thali-price">
+                        <span class="old-price">₹149</span>
+                        <span class="current-price">₹109</span>
+                    </div>
+                    <span class="thali-tag">Popular</span>
+                    <div class="thali-add">
+                        <div class="qty-control" data-item="Chicken Thali" data-price="109">
+                            <button class="qty-btn qty-minus">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thali-card">
+                    <div class="thali-icon">🥗</div>
+                    <h3 class="thali-name">Veg Thali</h3>
+                    <p class="thali-desc">Rice, Dal, Begun Bhaja, Aloor Dom (2 pcs), Chutney, Papad</p>
+                    <div class="thali-price">
+                        <span class="old-price">₹109</span>
+                        <span class="current-price">₹79</span>
+                    </div>
+                    <div class="thali-add">
+                        <div class="qty-control" data-item="Veg Thali" data-price="79">
+                            <button class="qty-btn qty-minus">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thali-card">
+                    <div class="thali-icon">✨</div>
+                    <h3 class="thali-name">Veg Thali Special</h3>
+                    <p class="thali-desc">Rice, Dal, Aloo Bhaja, Gravy Paneer, Chutney, Papad</p>
+                    <div class="thali-price">
+                        <span class="old-price">₹119</span>
+                        <span class="current-price">₹89</span>
+                    </div>
+                    <span class="thali-tag">Chef's Pick</span>
+                    <div class="thali-add">
+                        <div class="qty-control" data-item="Veg Thali Special" data-price="89">
+                            <button class="qty-btn qty-minus">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thali-card">
+                    <div class="thali-icon">🥚</div>
+                    <h3 class="thali-name">Egg Thali</h3>
+                    <p class="thali-desc">Rice, Dal, Aloo Bhaja, Egg Curry, Chutney, Papad</p>
+                    <div class="thali-price">
+                        <span class="old-price">₹119</span>
+                        <span class="current-price">₹89</span>
+                    </div>
+                    <div class="thali-add">
+                        <div class="qty-control" data-item="Egg Thali" data-price="89">
+                            <button class="qty-btn qty-minus">−</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn qty-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in <span class="title-accent">Touch</span></h2>
+            <p class="section-subtitle">Reach out for any queries</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <a href="tel:7003220189" class="contact-number">7003220189</a>
+                    <a href="tel:6291216744" class="contact-number">6291216744</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/917003220189" class="contact-number whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
+                    <p class="contact-note">Quick replies & order tracking</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Kitchen Location</h3>
+                    <p class="contact-address">Madhyamgram</p>
+                    <p class="contact-note">Offline Kitchen</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🛵</div>
+                    <h3>Delivery Areas</h3>
+                    <div class="delivery-areas">
+                        <span class="area-tag">Madhyamgram</span>
+                        <span class="area-tag">Barasat</span>
+                        <span class="area-tag">Hridaypur</span>
+                        <span class="area-tag">New Barrackpore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🍜</span>
+                    <span class="logo-text"><span class="bengali-brand">বং</span> Chingzz</span>
+                    <p>Home Kitchen — Made with ❤️</p>
+                </div>
+                <div class="footer-info">
+                    <p>⚠️ Minimum order <strong>₹169</strong> for delivery</p>
+                    <p>📦 Orders below ₹169: <strong>₹40</strong> delivery charge</p>
+                    <p>⏰ Place orders <strong>1.5 hours</strong> before delivery time</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 বং Chingzz Home Kitchen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Floating Cart Button ===== -->
+    <button class="cart-fab" id="cartFab" aria-label="Open cart">
+        <span class="cart-fab-icon">🛒</span>
+        <span class="cart-fab-badge" id="cartBadge">0</span>
+    </button>
+
+    <!-- ===== Cart Drawer ===== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2>🛒 Your Order</h2>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty" id="cartEmpty">
+                <span class="cart-empty-icon">🍽️</span>
+                <p>Your cart is empty</p>
+                <small>Add items from the menu to get started!</small>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+        </div>
+
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="cart-summary-row cart-delivery-row" id="cartDeliveryRow" style="display:none;">
+                    <span>Delivery Charge</span>
+                    <span id="cartDelivery">₹40</span>
+                </div>
+                <div class="cart-summary-row cart-total-row">
+                    <span>Total</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                <p class="cart-min-note" id="cartMinNote"></p>
+            </div>
+
+            <div class="cart-customer">
+                <input type="text" id="customerName" class="cart-input" placeholder="Your Name *" required>
+                <input type="text" id="customerAddress" class="cart-input" placeholder="Delivery Address *" required>
+            </div>
+
+            <button class="cart-order-btn" id="orderBtn">
+                <span class="cart-order-icon">💬</span>
+                Order via WhatsApp
+            </button>
+        </div>
+    </aside>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
