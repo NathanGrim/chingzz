@@ -1289,3 +1289,18 @@ a { text-decoration: none; color: inherit; }
     background: linear-gradient(135deg, #e53935, #c62828);
     box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
 }
+
+
+/* ===== When Kitchen is Closed: Turn Off Cart Facility & Add Buttons ===== */
+body.kitchen-is-closed .qty-control {
+    display: none !important;
+}
+
+body.kitchen-is-closed .cart-fab {
+    display: none !important;
+}
+
+body.kitchen-is-closed .cart-drawer,
+body.kitchen-is-closed .cart-overlay {
+    display: none !important;
+}

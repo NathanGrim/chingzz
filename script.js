@@ -1,6 +1,6 @@
 // ===== Cart State =====
 const cart = {}; // { "Item Name": { price: number, qty: number } }
-const WHATSAPP_NUMBER = '917003220189';
+const WHATSAPP_NUMBER = '916291216744';
 const MIN_ORDER = 169;
 const DELIVERY_CHARGE = 40;
 
@@ -125,6 +125,10 @@ document.querySelectorAll('.qty-control').forEach(control => {
 
     plusBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (!kitchenStatus.isOpen) {
+            showToast('⚠️ Kitchen is currently closed for orders.');
+            return;
+        }
         addToCart(itemName, itemPrice);
         syncAllQtyDisplays(itemName);
         showToast(`Added "${itemName}"`);
@@ -132,6 +136,7 @@ document.querySelectorAll('.qty-control').forEach(control => {
 
     minusBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (!kitchenStatus.isOpen) return;
         removeFromCart(itemName);
         syncAllQtyDisplays(itemName);
     });
@@ -263,6 +268,10 @@ function renderCartItems() {
 
 // ===== Cart Drawer Open/Close =====
 function openCart() {
+    if (!kitchenStatus.isOpen) {
+        showToast('⚠️ Kitchen is currently closed for orders.');
+        return;
+    }
     cartDrawer.classList.add('open');
     cartOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -394,6 +403,14 @@ async function fetchKitchenStatus() {
 }
 
 function updateKitchenStatusUI() {
+    // 0. Toggle body class for instant UI hide/show of cart & add buttons
+    if (!kitchenStatus.isOpen) {
+        document.body.classList.add('kitchen-is-closed');
+        closeCart();
+    } else {
+        document.body.classList.remove('kitchen-is-closed');
+    }
+
     // 1. Navbar badge
     if (navStatusBadge && navStatusText) {
         if (kitchenStatus.isOpen) {
