@@ -20,9 +20,13 @@ export default async function handler(req, res) {
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
 
-    // Support both Upstash Redis and Vercel KV environment variable names
-    const redisUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    // Dynamically detect Upstash / Vercel KV environment variables (supports any prefix like KV_, UPSTASH_, STORAGE_)
+    const envKeys = Object.keys(process.env);
+    const urlKey = envKeys.find(k => k.endsWith('_REST_API_URL') || k.endsWith('_REST_URL') || k === 'UPSTASH_REDIS_REST_URL' || k === 'KV_REST_API_URL');
+    const tokenKey = envKeys.find(k => k.endsWith('_REST_API_TOKEN') || k.endsWith('_REST_TOKEN') || k === 'UPSTASH_REDIS_REST_TOKEN' || k === 'KV_REST_API_TOKEN');
+
+    const redisUrl = (urlKey && process.env[urlKey]) || process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const redisToken = (tokenKey && process.env[tokenKey]) || process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
     const ADMIN_PIN = process.env.ADMIN_PIN || '1234'; // Default PIN is 1234, change in Vercel settings
 
     const REDIS_KEY = 'bongchingzz_kitchen_status';
