@@ -533,7 +533,17 @@
             previewBanner.innerHTML = `<strong>${prefix}</strong> <span>${msg || defaultMsg}</span>`;
         }
 
+        const OPEN_NORMALLY_MSG = "We are open! Delivery available in Madhyamgram & Barasat.";
+        const DEFAULT_CLOSED_MSG = "Kitchen is closed for now. We will reopen soon!";
+
         statusToggle.addEventListener('change', () => {
+            if (statusToggle.checked) {
+                noticeMessage.value = OPEN_NORMALLY_MSG;
+            } else {
+                if (!noticeMessage.value.trim() || noticeMessage.value.trim() === OPEN_NORMALLY_MSG) {
+                    noticeMessage.value = DEFAULT_CLOSED_MSG;
+                }
+            }
             updateToggleUI(statusToggle.checked);
         });
 
