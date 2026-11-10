@@ -26,6 +26,10 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-right">
+                <div class="status-pill status-open" id="navStatusBadge" title="Kitchen Status">
+                    <span class="status-dot"></span>
+                    <span class="status-text" id="navStatusText">Open</span>
+                </div>
                 <div class="cuisine-tags">
                     <span class="tag tag-chinese">Chinese</span>
                     <span class="tag tag-bengali">Bengali</span>
@@ -39,6 +43,17 @@
             </div>
         </div>
     </nav>
+
+    <!-- Kitchen Status Alert Banner -->
+    <div class="kitchen-alert-bar" id="kitchenAlertBar" style="display: none;">
+        <div class="container alert-bar-content">
+            <span class="alert-bar-icon" id="alertBarIcon">📢</span>
+            <div class="alert-bar-text">
+                <strong id="alertBarTitle">Kitchen Notice:</strong>
+                <span id="alertBarMessage">We are currently closed.</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1002,6 +1017,14 @@
                 <small>Add items from the menu to get started!</small>
             </div>
             <div class="cart-items" id="cartItems"></div>
+        </div>
+
+        <div class="cart-closed-notice" id="cartClosedNotice" style="display: none;">
+            <span class="closed-notice-icon">🔴</span>
+            <div>
+                <strong>Kitchen Currently Closed</strong>
+                <p id="cartClosedNoticeMsg">Orders sent now will be treated as pre-orders.</p>
+            </div>
         </div>
 
         <div class="cart-footer" id="cartFooter">

@@ -29,6 +29,21 @@ const customerName = document.getElementById('customerName');
 const customerAddress = document.getElementById('customerAddress');
 const toastEl = document.getElementById('toast');
 
+// Kitchen Status DOM Elements
+const navStatusBadge = document.getElementById('navStatusBadge');
+const navStatusText = document.getElementById('navStatusText');
+const kitchenAlertBar = document.getElementById('kitchenAlertBar');
+const alertBarIcon = document.getElementById('alertBarIcon');
+const alertBarTitle = document.getElementById('alertBarTitle');
+const alertBarMessage = document.getElementById('alertBarMessage');
+const cartClosedNotice = document.getElementById('cartClosedNotice');
+const cartClosedNoticeMsg = document.getElementById('cartClosedNoticeMsg');
+
+let kitchenStatus = {
+    isOpen: true,
+    message: ''
+};
+
 // ===== Navbar Scroll =====
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
@@ -284,7 +299,16 @@ orderBtn.addEventListener('click', () => {
     const delivery = subtotal < MIN_ORDER ? DELIVERY_CHARGE : 0;
     const total = subtotal + delivery;
 
-    let msg = `🍜 *New Order — বং Chingzz Home Kitchen*\n\n`;
+    let msg = '';
+    if (!kitchenStatus.isOpen) {
+        msg += `⚠️ *[PRE-ORDER — KITCHEN CURRENTLY CLOSED]*\n`;
+        if (kitchenStatus.message) {
+            msg += `📢 _Note: ${kitchenStatus.message}_\n`;
+        }
+        msg += `\n`;
+    }
+
+    msg += `🍜 *New Order — বং Chingzz Home Kitchen*\n\n`;
     msg += `👤 *Name:* ${name || 'Customer'}\n`;
     msg += `📍 *Address:* ${address || 'Will provide in chat'}\n\n`;
     msg += `📋 *Order Details:*\n`;
@@ -351,3 +375,84 @@ function showToast(message) {
 
 // ===== Init =====
 updateCartUI();
+fetchKitchenStatus();
+
+// ===== Kitchen Status Sync (Upstash Redis) =====
+async function fetchKitchenStatus() {
+    try {
+        const res = await fetch('/api/status', { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+
+        kitchenStatus.isOpen = Boolean(data.isOpen);
+        kitchenStatus.message = (data.message || '').trim();
+
+        updateKitchenStatusUI();
+    } catch (err) {
+        console.warn('Could not fetch live kitchen status:', err);
+    }
+}
+
+function updateKitchenStatusUI() {
+    // 1. Navbar badge
+    if (navStatusBadge && navStatusText) {
+        if (kitchenStatus.isOpen) {
+            navStatusBadge.className = 'status-pill status-open';
+            navStatusText.textContent = 'Open';
+            navStatusBadge.title = 'Kitchen is Open for Orders';
+        } else {
+            navStatusBadge.className = 'status-pill status-closed';
+            navStatusText.textContent = 'Closed';
+            navStatusBadge.title = 'Kitchen is Currently Closed';
+        }
+    }
+
+    // 2. Alert Banner under Navbar
+    if (kitchenAlertBar) {
+        if (!kitchenStatus.isOpen) {
+            kitchenAlertBar.style.display = 'block';
+            kitchenAlertBar.className = 'kitchen-alert-bar closed';
+            if (alertBarIcon) alertBarIcon.textContent = '🔴';
+            if (alertBarTitle) alertBarTitle.textContent = 'Kitchen Currently Closed:';
+            if (alertBarMessage) {
+                alertBarMessage.textContent = kitchenStatus.message || 'We are not accepting immediate orders right now. Feel free to browse our menu!';
+            }
+        } else if (kitchenStatus.message) {
+            kitchenAlertBar.style.display = 'block';
+            kitchenAlertBar.className = 'kitchen-alert-bar open-notice';
+            if (alertBarIcon) alertBarIcon.textContent = '📢';
+            if (alertBarTitle) alertBarTitle.textContent = 'Kitchen Notice:';
+            if (alertBarMessage) alertBarMessage.textContent = kitchenStatus.message;
+        } else {
+            kitchenAlertBar.style.display = 'none';
+        }
+    }
+
+    // 3. Cart Drawer notice and button
+    if (cartClosedNotice) {
+        if (!kitchenStatus.isOpen) {
+            cartClosedNotice.style.display = 'flex';
+            if (cartClosedNoticeMsg) {
+                cartClosedNoticeMsg.textContent = kitchenStatus.message || 'We are closed right now. You can still send a pre-order via WhatsApp!';
+            }
+        } else {
+            cartClosedNotice.style.display = 'none';
+        }
+    }
+
+    if (orderBtn) {
+        if (!kitchenStatus.isOpen) {
+            orderBtn.classList.add('is-closed');
+            orderBtn.innerHTML = '<span class="cart-order-icon">💬</span> Pre-order via WhatsApp (Closed)';
+        } else {
+            orderBtn.classList.remove('is-closed');
+            orderBtn.innerHTML = '<span class="cart-order-icon">💬</span> Order via WhatsApp';
+        }
+    }
+}
+
+// Poll every 60 seconds and on tab focus
+setInterval(fetchKitchenStatus, 60000);
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) fetchKitchenStatus();
+});

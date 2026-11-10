@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বং Chingzz | Kitchen Control Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a1a;
+            --bg-card: #12122b;
+            --bg-input: #1a1a38;
+            --yellow: #ffd60a;
+            --pink: #e91e8c;
+            --green: #25d366;
+            --red: #ff3b3b;
+            --white: #ffffff;
+            --gray-300: #a0a0a0;
+            --gray-400: #707070;
+            --font-main: 'Poppins', 'Hind Siliguri', sans-serif;
+            --radius: 14px;
+            --transition: all 0.25s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-dark);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px 40px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-top: 10px;
+        }
+        .brand-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--yellow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .brand-bengali {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .header-subtitle {
+            font-size: 0.85rem;
+            color: var(--pink);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        /* Card */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* PIN Section */
+        .pin-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-input);
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 214, 10, 0.2);
+        }
+        .pin-label {
+            font-size: 0.85rem;
+            color: var(--gray-300);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .pin-input {
+            width: 90px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--yellow);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-align: center;
+            padding: 4px 8px;
+            border-radius: 6px;
+            outline: none;
+        }
+        .pin-input:focus {
+            border-color: var(--yellow);
+        }
+
+        /* Status Toggle Hero */
+        .status-hero {
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 12px;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+        .status-hero.open {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1.5px solid rgba(37, 211, 102, 0.4);
+        }
+        .status-hero.closed {
+            background: rgba(255, 59, 59, 0.1);
+            border: 1.5px solid rgba(255, 59, 59, 0.4);
+        }
+
+        .status-badge-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        .status-hero.open .status-badge-large {
+            color: var(--green);
+        }
+        .status-hero.closed .status-badge-large {
+            color: var(--red);
+        }
+
+        /* Big Switch */
+        .switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .switch-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .switch-label.active-open {
+            color: var(--green);
+        }
+        .switch-label.active-closed {
+            color: var(--red);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 74px;
+            height: 38px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background-color: var(--red);
+            transition: var(--transition);
+            border-radius: 38px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 30px;
+            width: 30px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        input:checked + .slider {
+            background-color: var(--green);
+        }
+        input:checked + .slider:before {
+            transform: translateX(36px);
+        }
+
+        /* Presets */
+        .presets-title {
+            font-size: 0.8rem;
+            color: var(--gray-300);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .preset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .preset-btn {
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            font-family: var(--font-main);
+            font-size: 0.8rem;
+            padding: 9px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+        }
+        .preset-btn:hover {
+            border-color: var(--yellow);
+            background: rgba(255, 214, 10, 0.08);
+        }
+
+        /* Notice Message */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-300);
+            margin-bottom: 6px;
+        }
+        .form-textarea {
+            width: 100%;
+            min-height: 80px;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 12px 14px;
+            color: var(--white);
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            resize: vertical;
+            outline: none;
+            transition: var(--transition);
+        }
+        .form-textarea:focus {
+            border-color: var(--yellow);
+        }
+
+        /* Save Button */
+        .save-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--yellow), #ffe066);
+            color: #0a0a1a;
+            font-size: 1.05rem;
+            font-weight: 800;
+            font-family: var(--font-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(255, 214, 10, 0.3);
+        }
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 214, 10, 0.45);
+        }
+        .save-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Customer Preview Box */
+        .preview-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 15px;
+        }
+        .preview-header {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .preview-banner {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .preview-banner.open {
+            background: rgba(37, 211, 102, 0.15);
+            border-left: 3px solid var(--green);
+            color: #aff4c6;
+        }
+        .preview-banner.closed {
+            background: rgba(255, 59, 59, 0.15);
+            border-left: 3px solid var(--red);
+            color: #ffb3b3;
+        }
+
+        /* Footer Links */
+        .footer-links {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--yellow);
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .site-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(30px);
+            background: var(--bg-card);
+            border: 1px solid var(--yellow);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            white-space: nowrap;
+        }
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast.error {
+            border-color: var(--red);
+            color: #ff9999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="/" class="brand-logo">
+                🍜 <span class="brand-bengali">বং</span> Chingzz
+            </a>
+            <div class="header-subtitle">Kitchen Live Switch</div>
+        </header>
+
+        <div class="card">
+            <!-- Admin PIN -->
+            <div class="pin-section">
+                <div class="pin-label">
+                    <span>🔒 Admin PIN:</span>
+                    <small style="color:var(--gray-400);">(Default 1234)</small>
+                </div>
+                <input type="password" id="adminPin" class="pin-input" maxlength="8" placeholder="••••">
+            </div>
+
+            <!-- Big Status Toggle -->
+            <div class="status-hero open" id="statusHero">
+                <div class="status-badge-large" id="statusBadge">
+                    <span id="statusDot">🟢</span>
+                    <span id="statusText">KITCHEN OPEN</span>
+                </div>
+                <div class="switch-container">
+                    <span class="switch-label" id="labelClosed">Closed</span>
+                    <label class="switch">
+                        <input type="checkbox" id="statusToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label active-open" id="labelOpen">Open</span>
+                </div>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="presets-title">⚡ Quick Message Presets</div>
+            <div class="preset-grid">
+                <button type="button" class="preset-btn" data-open="true" data-msg="We are open! Delivery available in Madhyamgram & Barasat.">
+                    🟢 Open Normally
+                </button>
+                <button type="button" class="preset-btn" data-open="true" data-msg="Open for pre-orders! Please order 1.5 hours in advance.">
+                    🟡 Pre-orders Only
+                </button>
+                <button type="button" class="preset-btn" data-open="false" data-msg="Closed for afternoon break. Reopening at 6:00 PM for dinner & snacks!">
+                    🔴 Opening at 6:00 PM
+                </button>
+                <button type="button" class="preset-btn" data-open="false" data-msg="Kitchen is closed for today. We will reopen tomorrow at 12:00 PM.">
+                    🔴 Closed for Today
+                </button>
+            </div>
+
+            <!-- Custom Notice Input -->
+            <div class="form-group">
+                <label for="noticeMessage" class="form-label">
+                    📢 Customer Notice Banner (Optional):
+                </label>
+                <textarea id="noticeMessage" class="form-textarea" placeholder="Enter message to display on the customer website..."></textarea>
+            </div>
+
+            <!-- Live Customer Preview -->
+            <div class="preview-box">
+                <div class="preview-header">
+                    <span>👁️ Live Customer Preview</span>
+                </div>
+                <div class="preview-banner open" id="previewBanner">
+                    <strong>🟢 Kitchen is Open:</strong> <span id="previewText">We are open! Delivery available in Madhyamgram & Barasat.</span>
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div style="margin-top: 20px;">
+                <button class="save-btn" id="saveBtn">
+                    <span>💾 Save & Update Website</span>
+                </button>
+            </div>
+
+            <div id="lastUpdated" style="text-align: center; font-size: 0.75rem; color: var(--gray-400); margin-top: 12px;">
+                Checking current status...
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="/" target="_blank" class="site-link">
+                ↗️ View Live Customer Website
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const API_URL = '/api/status';
+
+        const statusToggle = document.getElementById('statusToggle');
+        const statusHero = document.getElementById('statusHero');
+        const statusBadge = document.getElementById('statusBadge');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        const labelOpen = document.getElementById('labelOpen');
+        const labelClosed = document.getElementById('labelClosed');
+        const noticeMessage = document.getElementById('noticeMessage');
+        const previewBanner = document.getElementById('previewBanner');
+        const previewText = document.getElementById('previewText');
+        const adminPin = document.getElementById('adminPin');
+        const saveBtn = document.getElementById('saveBtn');
+        const lastUpdated = document.getElementById('lastUpdated');
+        const toast = document.getElementById('toast');
+
+        // Load saved PIN from localStorage
+        const savedPin = localStorage.getItem('bongchingzz_admin_pin') || '1234';
+        adminPin.value = savedPin;
+        adminPin.addEventListener('input', () => {
+            localStorage.setItem('bongchingzz_admin_pin', adminPin.value.trim());
+        });
+
+        // Update UI state based on toggle
+        function updateToggleUI(isOpen) {
+            statusToggle.checked = isOpen;
+            if (isOpen) {
+                statusHero.className = 'status-hero open';
+                statusDot.textContent = '🟢';
+                statusText.textContent = 'KITCHEN OPEN';
+                labelOpen.className = 'switch-label active-open';
+                labelClosed.className = 'switch-label';
+                previewBanner.className = 'preview-banner open';
+            } else {
+                statusHero.className = 'status-hero closed';
+                statusDot.textContent = '🔴';
+                statusText.textContent = 'KITCHEN CLOSED';
+                labelOpen.className = 'switch-label';
+                labelClosed.className = 'switch-label active-closed';
+                previewBanner.className = 'preview-banner closed';
+            }
+            updatePreview();
+        }
+
+        // Live preview update
+        function updatePreview() {
+            const isOpen = statusToggle.checked;
+            const msg = noticeMessage.value.trim();
+            const prefix = isOpen ? '🟢 Kitchen is Open:' : '🔴 Kitchen is Closed:';
+            const defaultMsg = isOpen ? 'Accepting delivery orders now!' : 'Not accepting orders right now. Browse our menu!';
+            previewBanner.innerHTML = `<strong>${prefix}</strong> <span>${msg || defaultMsg}</span>`;
+        }
+
+        statusToggle.addEventListener('change', () => {
+            updateToggleUI(statusToggle.checked);
+        });
+
+        noticeMessage.addEventListener('input', updatePreview);
+
+        // Quick Presets
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isOpen = btn.dataset.open === 'true';
+                const msg = btn.dataset.msg;
+                noticeMessage.value = msg;
+                updateToggleUI(isOpen);
+            });
+        });
+
+        // Toast Helper
+        let toastTimeout;
+        function showToast(msg, isError = false) {
+            clearTimeout(toastTimeout);
+            toast.textContent = msg;
+            toast.className = 'toast show' + (isError ? ' error' : '');
+            toastTimeout = setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+
+        // Fetch current status from Upstash Redis API
+        async function fetchStatus() {
+            try {
+                const res = await fetch(API_URL);
+                if (!res.ok) throw new Error('Failed to load status');
+                const data = await res.json();
+
+                updateToggleUI(Boolean(data.isOpen));
+                if (data.message) {
+                    noticeMessage.value = data.message;
+                }
+                updatePreview();
+
+                if (data.updatedAt) {
+                    const dt = new Date(data.updatedAt);
+                    lastUpdated.textContent = `Last updated: ${dt.toLocaleTimeString()} (${dt.toLocaleDateString()})`;
+                } else {
+                    lastUpdated.textContent = 'Status is active.';
+                }
+            } catch (err) {
+                console.error('Fetch status error:', err);
+                lastUpdated.textContent = 'Running in offline / preview mode.';
+            }
+        }
+
+        // Save Status to Upstash Redis
+        saveBtn.addEventListener('click', async () => {
+            const pin = adminPin.value.trim();
+            if (!pin) {
+                showToast('⚠️ Please enter your Admin PIN!', true);
+                adminPin.focus();
+                return;
+            }
+
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<span>⏳ Updating...</span>';
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        isOpen: statusToggle.checked,
+                        message: noticeMessage.value.trim(),
+                        pin: pin
+                    })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok || !data.success) {
+                    throw new Error(data.error || 'Failed to update status');
+                }
+
+                showToast(`🎉 Kitchen is now ${statusToggle.checked ? 'OPEN' : 'CLOSED'}!`);
+                const dt = new Date();
+                lastUpdated.textContent = `Last updated: ${dt.toLocaleTimeString()} (${dt.toLocaleDateString()})`;
+            } catch (err) {
+                console.error('Save error:', err);
+                showToast(`❌ ${err.message}`, true);
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = '<span>💾 Save & Update Website</span>';
+            }
+        });
+
+        // Initialize on page load
+        fetchStatus();
+    </script>
+</body>
+</html>
+
