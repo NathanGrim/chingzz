@@ -105,7 +105,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.combo-card, .menu-category, .thali-card, .contact-card').forEach(el => {
+document.querySelectorAll('.combo-card, .menu-category, .thali-card, .contact-card, .special-offer-wrapper').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
 });
